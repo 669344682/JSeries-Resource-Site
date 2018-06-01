@@ -1,11 +1,21 @@
+
+
 var Jimp = require("jimp");
 const imagemin = require('imagemin');
 var fs = Npm.require('fs');
 var dlMap = ''
 
-var base = process.env.PWD;
+
+var path = Npm.require('path');
+Meteor.rootPath     = path.resolve('.');
+Meteor.absolutePath = Meteor.rootPath.split(path.sep + '.meteor')[0];
+var base = Meteor.absolutePath;
 
 var path = base+"/.static~/";
+
+
+
+console.log(Meteor.absolutePath)
 
 Meteor.methods({
   createPost:function(title, description, excerpt, tags, url, catagory2, newDat, map, mapName){

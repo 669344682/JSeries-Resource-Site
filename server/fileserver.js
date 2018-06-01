@@ -1,5 +1,9 @@
 var fs = Npm.require('fs');
-var base = process.env.PWD;
+
+var path = Npm.require('path');
+Meteor.rootPath     = path.resolve('.');
+Meteor.absolutePath = Meteor.rootPath.split(path.sep + '.meteor')[0];
+var base = Meteor.absolutePath;
 
 WebApp.connectHandlers.use(function(req, res, next) {
     var re = /^\/files\/(.*)$/.exec(req.url);
