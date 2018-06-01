@@ -1,7 +1,7 @@
 # CommunityMTA
 
 
-### Running Locally
+## Running Locally
 
 To run Locally you'll need Meteor.js
 
@@ -28,3 +28,4 @@ To run Locally you'll need Meteor.js
     meteor --port (Port here)
     
     
+Not tested in linux
