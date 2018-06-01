@@ -2,7 +2,10 @@ var Jimp = require("jimp");
 const imagemin = require('imagemin');
 var fs = Npm.require('fs');
 var dlMap = ''
-var path = "C:/Users/Administrator/Desktop/Website/CommunityMTA/.static~/";
+
+var base = Meteor.rootPath;
+
+var path = base+"/.static~/";
 
 Meteor.methods({
   createPost:function(title, description, excerpt, tags, url, catagory2, newDat, map, mapName){
