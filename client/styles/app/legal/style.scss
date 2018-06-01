@@ -1,0 +1,17 @@
+@import "../../../default";
+
+.legalCon{
+  margin: 0 auto;
+  padding-top: 80px;
+  width: $appWidth;
+  height: calc(100% - 80px);
+  display: table;
+  margin-bottom: 20px;
+
+  .con{
+    background: $foreColor;
+    color: white;
+    padding: 10px 20px;
+    @include border-radius(4px);
+  }
+}

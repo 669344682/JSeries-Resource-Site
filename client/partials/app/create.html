@@ -1,0 +1,196 @@
+<template name="create">
+  <section class="create">
+    {{#unless editPost}}
+    <h1 class="location">Upload Resource</h1>
+    {{/unless}}
+    <div class="con">
+      {{#unless editPost}}
+      <div class="section">
+        <h4>Media</h4>
+        {{>mediaCon}}
+      </div>
+      {{/unless}}
+
+      <div class="section">
+        <h4 >Title</h4>
+        <input class="mapTitle {{editPost}}Title" placeholder='Title...' value="{{title}}">
+      </div>
+
+      <div class="section">
+        <h4>Description</h4>
+        <textarea class="mapDescription {{editPost}}Description" placeholder="Markdown friendly!" value="{{description}}"></textarea>
+      </div>
+
+      <div class="section">
+        <h4>Excerpt</h4>
+        <textarea class="mapExcerpt {{editPost}}Excerpt" placeholder="Quick about that shows on feed and search." value="{{excerpt}}"></textarea>
+      </div>
+
+      {{#unless editPost}}
+      <div class="section">
+        <h4>Tags</h4>
+        <input placeholder="#Tags" class="mapTags" id="mapTags" value="{{tagList}}"/>
+        <script charset="utf-8">
+        var a = document.getElementById('mapTags');
+        a.addEventListener('keydown', addHash, false);
+
+        function addHash(event) {
+          if (event.keyCode === 32 && event.target.value.length) {
+            event.preventDefault();
+
+            var elem = event.target,
+            val = elem.value;
+
+            if (val.slice(-1) !== '#') {
+              elem.value += ' #';
+            }
+          } else if (!event.target.value.length) {
+            if (event.keyCode === 32) {
+              event.preventDefault();
+            }
+            event.target.value = '#';
+          }
+        }
+        </script>
+      </div>
+      {{/unless}}
+
+      <div class="section">
+        <h4>Video URL</h4>
+        <input placeholder="YouTube URL" class="mapUrl {{editPost}}Url" value="{{url}}"/>
+      </div>
+
+      <div class="section">
+        <h4>Resource File ( zip, tar ).</h4>
+        <input id="mapFile" type="file" accept=".zip, .7zip, .tar, .tar.gz">
+      </div>
+
+      <div class="section">
+        <h4>Catagory</h4>
+        <select class="mapCatagory {{editPost}}Catagory" value="{{gameMode}}">
+          <option value="Map">Map</option>
+          <option value="Gamemode">Gamemode</option>
+          <option value="Resource">Resource</option>
+          <option value="Script">Script</option>
+          <option value="Shader">Shader</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <script>
+      $('.editMapCatagory').val('{{gameMode}}')
+      </script>
+
+      <button class="button-light {{editPost}}Cancel">Cancel</button>
+      {{#unless editPost}}
+      <button class="button mapPost">Post</button>
+      {{else}}
+      <button class="button savePostEdit">Save</button>
+      {{/unless}}
+    </div>
+  </section>
+</template>
+
+<!-- seperated so it's easier to read -->
+<template name="mediaCon">
+  <div class="mediaCon">
+    <div class="pictureCon">
+      <div class="fa fa-cloud-upload">
+        <img src="https://f000.backblazeb2.com/file/dh-thumbs/{{currentPost}}_0.jpg"  id="preview"/>
+      </div>
+      <div class="label">
+        Drag and Drop a picture!
+      </div>
+      <div class="button">
+        Add from Computer
+      </div>
+
+      <input id="files0" type="file" accept=".png, .jpg, .jpeg">
+    </div>
+
+    <div class="pictureCon">
+      <div class="fa fa-cloud-upload">
+        <img src=""  id="preview1"/>
+      </div>
+      <div class="label">
+        Drag and Drop a picture!
+      </div>
+      <div class="button">
+        Add from Computer
+      </div>
+
+      <input id="files1" type="file" accept=".png, .jpg, .jpeg">
+    </div>
+
+    <div class="pictureCon">
+      <div class="fa fa-cloud-upload">
+        <img src=""  id="preview2"/>
+      </div>
+      <div class="label">
+        Drag and Drop a picture!
+      </div>
+      <div class="button">
+        Add from Computer
+      </div>
+
+      <input id="files2" type="file" accept=".png, .jpg, .jpeg">
+    </div>
+
+    <div class="pictureCon">
+      <div class="fa fa-cloud-upload">
+        <img src=""  id="preview3"/>
+      </div>
+      <div class="label">
+        Drag and Drop a picture!
+      </div>
+      <div class="button">
+        Add from Computer
+      </div>
+
+      <input id="files3" type="file" accept=".png, .jpg, .jpeg">
+    </div>
+
+    <div class="pictureCon">
+      <div class="fa fa-cloud-upload">
+        <img src=""  id="preview4"/>
+      </div>
+      <div class="label">
+        Drag and Drop a picture!
+      </div>
+      <div class="button">
+        Add from Computer
+      </div>
+
+      <input id="files4" type="file" accept=".png, .jpg, .jpeg">
+    </div>
+    <script charset="utf-8">
+    function changes(target, preview){
+      if(/^image/.test($(target)[0].files[0].type)){
+        var file = $(target)[0].files[0];
+        var reader = new FileReader();
+        reader.onload = function(fileLoadEvent) {
+          $(preview).css('display', 'block');
+          $(preview).attr('src', reader.result);
+        };
+        reader.readAsDataURL(file);
+      }else{
+        notiSet('fail', 'Only Images, please!')
+      }
+    }
+    $('#files0').on('change', function(){
+      changes('#files0', '#preview')
+    })
+    $('#files1').on('change', function(){
+      changes('#files1', '#preview1')
+    })
+    $('#files2').on('change', function(){
+      changes('#files2', '#preview2')
+    })
+    $('#files3').on('change', function(){
+      changes('#files3', '#preview3')
+    })
+    $('#files4').on('change', function(){
+      changes('#files4', '#preview4')
+    })
+    </script>
+  </div>
+</template>
