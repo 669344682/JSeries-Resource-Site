@@ -3,7 +3,7 @@ const imagemin = require('imagemin');
 var fs = Npm.require('fs');
 var dlMap = ''
 
-var base = Meteor.rootPath;
+var base = process.env.PWD;
 
 var path = base+"/.static~/";
 
