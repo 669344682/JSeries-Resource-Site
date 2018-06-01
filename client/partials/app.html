@@ -1,0 +1,79 @@
+<template name="app">
+
+  <!-- put all modals here -->
+  <div class="modal registerModal">
+    {{>register}}
+  </div>
+
+  <div class="notificationCon">
+    {{>notifications}}
+  </div>
+
+  <div class="modal deleteModal">
+    {{>delete}}
+  </div>
+
+  <div class="MCon" id="content-2">
+    <!-- since nav is sticky, we'll put it above the mount  && all sticky objects here-->
+    {{>nav}}
+    <div class="app">
+      <!-- all scrolling here -->
+      <div class="mount">
+        {{#if post}}
+        {{>content}}
+        {{/if}}
+        {{#if home}}
+        {{>main}}
+        {{/if}}
+        {{#if create}}
+        {{#if currentUser}}
+        {{>create}}
+        {{/if}}
+        {{/if}}
+
+        {{#if settings}}
+        {{>settings}}
+        {{/if}}
+
+        {{#if privacy}}
+        {{>privacy}}
+        {{/if}}
+
+        {{#if terms}}
+        {{>terms}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <div class="drawers">
+    <div class="snap-drawer snap-drawer-left">
+
+      <div class="drawerCon">
+        <div class="profileCon">
+          <div class="banner">
+            <img src="/backgrounds/bg.jpg" class="blur" alt="" />
+            <div class="user">
+              <img src="/Logo.png" alt="">
+              <span class="username">
+                Multi theit auto
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="links">
+          {{#each catagory}}
+          <div class="type">
+            <h5 class="gameSelect">{{name}}</h5><h5 class="right">{{count}}</h5>
+          </div>
+          {{/each}}
+          <select class="themeSelect">
+            <option value="modern">Option A</option>
+            <option value="classic">Option B</option>
+          </select>
+        </div> 
+      </div>
+
+    </div>
+  </div>
+</template>

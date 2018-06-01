@@ -1,0 +1,52 @@
+<template name="settings">
+  <section class="settings">
+
+    <aside class="sidebar">
+      <div class="catagory">
+        <div class="con conBorder">
+          <h5 class="header">SETTINGS</h5>
+        </div>
+        <div class="con">
+          <div class="type goGen">
+            <h5>General</h5>
+          </div>
+          <div class="type goAdv">
+            <h5>Advanced</h5>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="list">
+      <div class="con gen">
+        <div class="section">
+          <h4>Email</h4>
+          <input class="email setEmail" placeholder='Email' value="{{email}}">
+        </div>
+
+        <button class="button-light">Cancel</button>
+        <button class="button mapPost setConf saveGen">Save</button>
+      </div>
+
+      <div class="con adv">
+        <div class="section">
+          <h4>Current Password</h4>
+          <input class="curPass" placeholder='Password' type="password">
+        </div>
+
+        <div class="section">
+          <h4>New Password</h4>
+          <input class="newPass" placeholder='New Password' type="password">
+        </div>
+
+        <div class="section">
+          <h4>New Password ( Confirmation )</h4>
+          <input class="newPassConf" placeholder='New Password' type="password">
+        </div>
+
+        <button class="button-light canSet">Cancel</button>
+        <button class="button mapPost setConf saveAdv">Update</button>
+      </div>
+    </div>
+  </section>
+</template>

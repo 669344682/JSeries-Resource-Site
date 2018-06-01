@@ -1,0 +1,134 @@
+<template name="nav">
+  <nav id="nav">
+    <span class="deskNav">
+      <div class="con">
+        <div class="brand">
+          <img src="/Logo.png" alt="Multi Theft Auto" title="Multi Theft Auto"/>
+          Multi theft auto
+        </div>
+        <input class="search" placeholder="search...">
+
+        {{#if currentUser}}
+        <div class="upload">
+          Upload
+        </div>
+        <span class="profile">
+          <span class="fa fa-cog"></span>
+          <div class="dropdown profileDropdown">
+            <span class="object username">@{{currentUser.username}}</span>
+            <div class="section">
+              <div class="object goProfile">
+                <span class="fa ion-android-person"></span>
+                <span class="label">Profile</span>
+              </div>
+
+              <div class="object saved">
+                <span class="fa ion-star"></span>
+                <span class="label">Favorites</span>
+              </div>
+
+              <div class="object appSet">
+                <span class="fa ion-android-settings"></span>
+                <span class="label">Settings</span>
+              </div>
+            </div>
+            <div class="section">
+              <div class="object logout">
+                <div class="label">
+                  Logout
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+          Meteor.modals.closeDropdown('.profileNav', '.profileDropdown')
+          </script>
+        </span>
+        <div class="fa fa-bell">
+
+        </div>
+        {{else}}
+        <div class="createAcc">
+          Login
+        </div>
+        {{/if}}
+      </div>
+    </span>
+    <div class="mobileNav">
+      <span class="fa fa-bars"></span>
+      <span class="label">
+        {{#if home}}
+        {{#unless user}}
+        All
+        {{/unless}}
+        {{/if}}
+        {{#if post}}
+        Post
+        {{/if}}
+        {{#if notFound}}
+        404
+        {{/if}}
+        {{#if user}}
+        User
+        {{/if}}
+      </span>
+      <input class='mobSearch' placeholder="Search..."/>
+
+      <div class="actions">
+        <span class="fa fa-search"></span>
+      </div>
+    </div>
+    <div class="downTimeWarning">
+      <div class="con">
+        <span class="fa ion-alert-circled"></span>Please refrain from uploading large files at the moment, this is a test site.
+      </div>
+    </div>
+  </nav>
+  <!--
+  <span class="fa ion-alert-circled"></span>The Community Site will be down for 20 minutues on May 22nd. Check out our <a href="https://discordapp.com/invite/RygaCSD" target="_blank">Discord Server</a> for more information!
+   -->
+  <!--
+  <script>
+  // Hide Header on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 100;
+  var navbarHeight = $('#nav').outerHeight();
+
+  if($(window).width() <= 750){
+    $('.app').scroll(function(event){
+      didScroll = true;
+    });
+
+    setInterval(function() {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, 250);
+
+    function hasScrolled() {
+      var st = $('.app').scrollTop();
+
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta)
+      return;
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('#nav').removeClass('nav-down').addClass('nav-up');
+      } else {
+        // Scroll Up
+        if(st + $('.app').height() < $('.mainView').height()) {
+          $('#nav').removeClass('nav-up').addClass('nav-down');
+        }
+      }
+
+      lastScrollTop = st;
+    }
+  }
+  </script>
+-->
+</template>

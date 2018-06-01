@@ -1,0 +1,126 @@
+@import "../../default";
+
+.create{
+  margin: 0 auto;
+  padding-top: 80px;
+  width: $appWidth;
+  height: calc(100% - 80px);
+
+  .con{
+    background: $foreColor;
+    padding: 20px;
+    width: calc(100% - 20px);
+    display: inline-block;
+  }
+  .location{
+    margin-bottom: 20px;
+  }
+  h1, h4{
+    color: white;
+    margin:0;
+    padding: 0;
+  }
+
+  .pictureCon{
+    position: relative;
+    margin-top: 5px;
+    width: calc(20% - 10px);
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 200px;
+    background: #f8fbfd;
+    text-align: center;
+    position: relative;
+    border: 1px solid #e1e5ee;
+    float: left;
+    @include border-radius(4px);
+    cursor: pointer;
+    .fa{
+      margin-top: 30px;
+      font-size: 50px;
+      color: #90a5b8;
+      position: relative;
+
+      img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        left: 0;
+        top: 0;
+        display: none;
+      }
+    }
+    .label{
+      margin-top: 10px;
+      font-size: 12px;
+      color: #74859a;
+      font-weight: 700;
+    }
+    .button{
+      width: 70%;
+      margin-left: 15%;
+      background: white;
+      border: 2px solid #408ced;
+      @include border-radius(3px);
+      text-align: center;
+      color: #4392ed;
+      height: 35px;
+      line-height: 35px;
+      font-weight: 700;
+      font-size: 13px;
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      cursor: pointer;
+    }
+
+    input{
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+  .section{
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+  }
+  .mediaCon{
+    display: inline-block;
+    width: 100%;
+  }
+  .mapTitle, .mapDescription, .mapTags, .mapUrl, .mapExcerpt, select{
+    @include border-radius(2px);
+    width: calc(100% - 14px);
+    max-width: 360px;
+    border: none;
+    box-shadow: 2px 2px 8px -1px rgba(17, 17, 17, 0.129412);
+    padding: 7px 7px 7px 7px;
+    height: 24px;
+    position: relative;
+    float: left;
+    margin-top: 5px;
+  }
+  select{
+    height: auto;
+  }
+  .mapDescription, .mapExcerpt{
+    max-width: calc(100% - 14px);
+    min-width: calc(100% - 14px);
+    height: 150px;
+  }
+  .mapExcerpt{
+    height: 60px;
+  }
+  .button-light{
+    color: white;
+  }
+}
