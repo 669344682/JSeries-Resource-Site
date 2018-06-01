@@ -29,3 +29,4 @@ To run Locally you'll need Meteor.js
     
     
 Not tested in linux
+// http://jseries.net:22005/
