@@ -3,3 +3,4 @@ privateJs/
 build/
 server/private/
 settings.json
+.static~/
