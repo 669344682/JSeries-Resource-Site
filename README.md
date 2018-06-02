@@ -22,6 +22,7 @@ To run Locally you'll need Meteor.js
     meteor npm install -g node-pre-gyp
     meteor npm install -g chokidar
     meteor npm install --save bcrypt
+    meteor npm install
 
     Start Meteor
 
