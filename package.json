@@ -1,11 +1,11 @@
 {
-  "name": "MTA Community",
+  "name": "MTACommunity",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.42",
+    "@babel/runtime": "^7.0.0-beta.49",
     "backblaze-b2": "^1.0.4",
     "bcrypt": "^2.0.1",
     "circular-json": "^0.5.3",
