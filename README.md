@@ -7,7 +7,7 @@ To run Locally you'll need Meteor.js
 
     Clone this Git Repo
 
-    git clone https://github.com/codylewiz/CommunityMTA.git
+    git clone https://github.com/CodyJL/JSeries-Resource-Site
     
     CD into the project
 
