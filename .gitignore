@@ -4,3 +4,8 @@ build/
 server/private/
 settings.json
 .static~/
+start.bat
+.meteor/versions
+.meteor/release
+.meteor/packages
+.meteor/.finished-upgraders
