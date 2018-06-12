@@ -11,7 +11,7 @@ Meteor.rootPath     = path.resolve('.');
 Meteor.absolutePath = Meteor.rootPath.split(path.sep + '.meteor')[0];
 var base = Meteor.absolutePath;
 
-var path = base+"/.static~/";
+var path = base+"Files";
 
 
 
