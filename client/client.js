@@ -70,7 +70,7 @@ Meteor.pushState ={
     }else if(target == "home" || !target){
       pageNum.set('')
       history.pushState('', document.title, "/");
-      document.title = "Multi Theft Auto | Community"
+      document.title = "JSeries | Community Resources"
     }
   }
 }

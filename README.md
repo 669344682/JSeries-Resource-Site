@@ -1,4 +1,4 @@
-# CommunityMTA
+# JSeries Community Site
 
 
 ## Running Locally
@@ -11,7 +11,7 @@ To run Locally you'll need Meteor.js
     
     CD into the project
 
-    cd ./CommunityMTA
+    cd ./JSeries-Resource-Site
       
     Install the required NPM packages
 
