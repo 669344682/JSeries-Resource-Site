@@ -3,11 +3,11 @@ WebApp.connectHandlers.use(function(req, res, next) {
     var re = /^\/files\/(.*)$/.exec(req.url);
     if (re !== null) {   // Only handle URLs that start with /files/ prefix
         // 
-<<<<<<< HEAD
+
         var filePath = base+"/.static~/" + re[1];
-=======
+
         var filePath = "C:/Users/Administrator/Desktop/Website/CommunityMTA/.static~/" + re[1];
->>>>>>> 7ac09d897d939992f370c570720fd8ff4e61c8fe
+
         var data = fs.readFileSync(filePath);
 			if(!re[1].includes('resources')){
 				  res.writeHead(200, {
