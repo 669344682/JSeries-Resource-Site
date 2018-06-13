@@ -9,7 +9,7 @@ WebApp.connectHandlers.use(function(req, res, next) {
     var re = /^\/files\/(.*)$/.exec(req.url);
     if (re !== null) {   // Only handle URLs that start with /files/ prefix
         // 
-        var filePath = base+"/Files/" + re[1];
+        var filePath = base+"/.static~/" + re[1];
         var data = fs.readFileSync(filePath);
 			if(!re[1].includes('resources')){
 				  res.writeHead(200, {
