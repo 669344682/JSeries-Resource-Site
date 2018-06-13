@@ -11,7 +11,7 @@ Meteor.rootPath     = path.resolve('.');
 Meteor.absolutePath = Meteor.rootPath.split(path.sep + '.meteor')[0];
 var base = Meteor.absolutePath;
 
-var path = base+"/Files";
+var path = base+"/.static~/";
 
 
 
@@ -90,7 +90,7 @@ Meteor.methods({
       function uploadThumb(err, buffer){
         try{
           // write the buffer to the path
-          fs.writeFile(path+'/thumbs/'+daId+'_'+number+'.jpg', buffer,
+          fs.writeFile(path+'/thumbs/'+title+'_'+number+'.jpg', buffer,
           function (err) {
             if (err) throw err;
             console.log('Done!');
@@ -100,7 +100,7 @@ Meteor.methods({
         function uploadImage(err, buffer){
           try{
             // write the buffer to the path
-            fs.writeFile(path+'/images/'+daId+'_'+number+'.jpg', buffer,
+            fs.writeFile(path+'/images/'+title+'_'+number+'.jpg', buffer,
             function (err) {
               if (err) throw err;
               console.log('Done!');
