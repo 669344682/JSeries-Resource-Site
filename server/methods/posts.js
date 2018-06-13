@@ -11,7 +11,7 @@ Meteor.rootPath     = path.resolve('.');
 Meteor.absolutePath = Meteor.rootPath.split(path.sep + '.meteor')[0];
 var base = Meteor.absolutePath;
 
-var path = base+"/Files";
+var path = base+"/.static~/";
 
 
 
@@ -118,10 +118,10 @@ Meteor.methods({
       var mapBuffer = new Buffer(base64Data, "base64");
 
       mapName = mapName.replace(/[^A-Za-z0-9_\.]+/g,"+");
-	  dlMap = '/files/resources/'+mapName 
+	  dlMap = '/files/resources/'+daId+'_'+mapName 
       try{
         // write the buffer to the path
-        fs.writeFile(path+'/resources/'+mapName, mapBuffer,
+        fs.writeFile(path+'/resources/'+daId+'_'+mapName, mapBuffer,
         function (err) {
           if (err) console.log(err);
           console.log('Done!');
@@ -137,7 +137,7 @@ Meteor.methods({
       getVideo(url, daId)
     }catch(e){}
 
-    posts.insert({_id: daId, username: username, title: title, description:description, link:link, thumbnail: thumbnail, date: new Date(), tagList:testTags, comments: 0, score: 1, excerpt: excerpt, editDate: 'Never', views: 0, newDate: newDate, imgCount: newDat.length, downloads: 0, newScore: 0, gameMode:catagory2, upUsers:[username], downUsers:[],dlMap: dlMap, dlID: mapName })
+    posts.insert({_id: daId, username: username, title: title, description:description, link:link, thumbnail: thumbnail, date: new Date(), tagList:testTags, comments: 0, score: 1, excerpt: excerpt, editDate: 'Never', views: 0, newDate: newDate, imgCount: newDat.length, downloads: 0, newScore: 0, gameMode:catagory2, upUsers:[username], downUsers:[],dlMap: dlMap, dlID: daId+'_'+mapName })
     userStuff.update({username: Meteor.user().username}, {$push: {createdPosts: daId}})
     catagory.update({name:catagory2}, {$inc:{count: 1}})
 
@@ -247,10 +247,10 @@ Meteor.methods({
         // declare a binary buffer to hold decoded base64 data
         var mapBuffer = new Buffer(base64Data, "base64");
         mapName = mapName.replace(/[^A-Za-z0-9_\.]+/g,"+");
-		dlMap = '/files/resources/'+mapName
+		dlMap = '/files/resources/'+id+'_'+mapName
               try{
         // write the buffer to the path
-        fs.writeFile(path+'/resources/'+mapName , mapBuffer,
+        fs.writeFile(path+'/resources/'+id+'_'+mapName , mapBuffer,
         function (err) {
            if (err) console.log(err);
           console.log('Done!');
@@ -288,7 +288,7 @@ Meteor.methods({
       var oldCata = posts.findOne({_id: id}).gameMode
       catagory.update({name: oldCata}, {$inc: {count: -1}})
       catagory.update({name: mapCata}, {$inc: {count: 1}})
-      posts.update({_id: id}, {$set: {description:desc, lastEdit: new Date(), gameMode: mapCata, excerpt: mapExcerpt, title: newTitle, tagList:testTags  ,dlMap: dlMap, dlID: mapName}})
+      posts.update({_id: id}, {$set: {description:desc, lastEdit: new Date(), gameMode: mapCata, excerpt: mapExcerpt, title: newTitle, tagList:testTags  ,dlMap: dlMap, dlID: id+'_'+mapName}})
       return 'success'
     }else{
       return 'fail'
