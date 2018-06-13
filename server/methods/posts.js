@@ -71,43 +71,30 @@ Meteor.methods({
 	  
 	   
 	   
-      trimThumb()
-      compressPic()
-      function trimThumb(){
-        Jimp.read(imageBuffer, function (err, image) {
-          if (err) throw err;
-          image.resize(400, Jimp.AUTO).quality(50).getBuffer(Jimp.MIME_JPEG, uploadThumb);
-        })
-      }
+      uploadThumb()
+      uploadImage()
 
-      function compressPic(){
-        Jimp.read(imageBuffer, function (err, image) {
-          if (err) throw err;
-          image.resize(1280, Jimp.AUTO).quality(67).getBuffer(Jimp.MIME_JPEG, uploadImage);
-        })
-      }
-
-      function uploadThumb(err, buffer){
+      function uploadThumb(err){
         try{
           // write the buffer to the path
-          fs.writeFile(path+'/thumbs/'+title+'_'+number+'.jpg', buffer,
+          fs.writeFile(path+'/thumbs/'+daId+'_'+number+'.png', imageBuffer,
           function (err) {
             if (err) throw err;
             console.log('Done!');
           })}catch(e){console.log(e)}
         }
 
-        function uploadImage(err, buffer){
+        function uploadImage(err){
           try{
             // write the buffer to the path
-            fs.writeFile(path+'/images/'+title+'_'+number+'.jpg', buffer,
+            fs.writeFile(path+'/images/'+daId+'_'+number+'.png', imageBuffer,
             function (err) {
               if (err) throw err;
               console.log('Done!');
             })}catch(e){console.log(e)}
         }
 
-      extension = '.jpg'
+      extension = '.png'
     }
     function uploadMap(map){
       // declare a regexp to match the non base64 first characters
@@ -130,8 +117,8 @@ Meteor.methods({
     }
     uploadMap(map)
 
-    var thumbnail = '/files/thumbs/'+daId+'_0.jpg'
-    var link = '/files/images/'+daId+'_0.jpg'
+    var thumbnail = '/files/thumbs/'+daId+'_0.png'
+    var link = '/files/images/'+daId+'_0.png'
 
     try{
       getVideo(url, daId)
@@ -305,7 +292,7 @@ function getVideo(url, id){
       url = url.replace('youtu.be/', 'youtube.com/watch?v=')
     }
     var ytThumb = url.split('=')[1];
-    ytThumb = 'http://img.youtube.com/vi/'+ytThumb+'/mqdefault.jpg'
+    ytThumb = 'http://img.youtube.com/vi/'+ytThumb+'/mqdefault.png'
     ytThumb = ytThumb.replace('&feature', '')
     url = url.replace("watch?v=","embed/");
     url = url.replace('&feature=youtu.be', '')
