@@ -32,3 +32,5 @@ To run Locally you'll need Meteor.js
 Not tested in linux
 
 // http://jseries.net:22005/
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/BlueJayL)
